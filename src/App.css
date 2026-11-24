@@ -428,6 +428,143 @@ p {
   line-height: 1.9;
 }
 
+.destination-section {
+  width: min(100% - 112px, 1220px);
+  margin: 0 auto;
+  padding: 96px 0 72px;
+}
+
+.destination-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.destination-heading h2 {
+  margin: 24px 0 0;
+  font-size: clamp(34px, 4vw, 51px);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.17;
+}
+
+.destination-heading h2 em {
+  color: #b86f4c;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 48px;
+  border-top: 1px solid #e2e1d8;
+  border-left: 1px solid #e2e1d8;
+}
+
+.destination-card {
+  position: relative;
+  min-height: 270px;
+  padding: 30px;
+  border-right: 1px solid #e2e1d8;
+  border-bottom: 1px solid #e2e1d8;
+}
+
+.destination-number {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  color: #a6a69c;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.destination-country {
+  color: #b86f4c;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.destination-card h3 {
+  margin: 52px 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.destination-card p {
+  min-height: 58px;
+  max-width: 290px;
+  color: #777c74;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.destination-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #414e45;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.destination-card a svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform 180ms ease;
+}
+
+.destination-card a:hover svg {
+  transform: translateX(3px);
+}
+
+.travel-signal {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-top: 27px;
+  color: #778078;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.travel-signal::before,
+.travel-signal::after {
+  height: 1px;
+  background: #e2e1d8;
+  content: '';
+}
+
+.travel-signal strong {
+  color: #293d34;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.travel-signal strong + span {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
+}
+
+.travel-signal strong {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.travel-signal > span:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+
 .planning-section {
   width: min(100% - 112px, 1220px);
   margin: 0 auto;
@@ -570,6 +707,19 @@ p {
   color: #d39a78;
 }
 
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 18px;
+  font-size: 9px;
+}
+
+.contact-details a {
+  color: #dce2d7;
+  border-bottom: 1px solid rgba(220, 226, 215, 0.35);
+}
+
 .map-preview {
   position: relative;
   min-height: 478px;
@@ -634,6 +784,28 @@ p {
 .footer-map-link svg {
   width: 14px;
   height: 14px;
+}
+
+.footer-contact {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 4px 10px;
+  color: #777d75;
+  font-size: 9px;
+}
+
+.footer-contact p {
+  grid-column: 1 / -1;
+  margin: 0 0 2px;
+}
+
+.footer-contact a:hover {
+  color: #b86f4c;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
 }
 
 @media (min-width: 1500px) {
@@ -892,6 +1064,49 @@ p {
     margin-top: 14px;
   }
 
+  .destination-section {
+    width: calc(100% - 42px);
+    padding: 68px 0 58px;
+  }
+
+  .destination-heading {
+    display: block;
+  }
+
+  .destination-heading h2 {
+    margin: 19px 0 13px;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+
+  .destination-card {
+    min-height: 220px;
+  }
+
+  .destination-card h3 {
+    margin-top: 42px;
+  }
+
+  .travel-signal {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .travel-signal strong {
+    grid-column: 2;
+  }
+
+  .travel-signal > span:first-child {
+    grid-column: 1;
+  }
+
+  .travel-signal strong + span {
+    display: none;
+  }
+
   .location-section {
     grid-template-columns: 1fr;
   }
@@ -930,7 +1145,17 @@ p {
     width: 100%;
   }
 
+  .footer-contact {
+    order: 2;
+    width: 100%;
+  }
+
+  .footer-links {
+    order: 3;
+  }
+
   .copyright {
+    order: 4;
     width: 100%;
   }
 }
